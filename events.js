@@ -30,3 +30,19 @@ emitter.emit('click', 16);
 
 /////////////////////////////////////////////
 
+const server = http.createServer();
+
+server.on('request', (req, res) => {
+  console.log(req.url);
+  res.end('Ok');
+});
+
+server.on('request', (req, res) => {
+  console.log('😎⭐😺');
+});
+
+server.on('close', () => {
+  console.log('close server');
+});
+
+server.listen(8080, '127.0.0.1', () => console.log('starting...'));
