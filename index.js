@@ -35,16 +35,13 @@ const writeFileAsync = (filePath, data) => {
 const getDogPic = async () => {
   try {
     const data = await readFileAsync(`${__dirname}/dog.txt`);
-    console.log(`${data}`);
-
     const response = await superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
-    console.log(response.body.message);
-
-    const result = await writeFileAsync('dog-image.txt', response.body.message);
-    console.log(result);
+    return await writeFileAsync('dog-image.txt', response.body.message);
   } catch (err) {
-    console.log(err);
+    throw new Error('error...');
   }
 };
 
-getDogPic();
+getDogPic()
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
