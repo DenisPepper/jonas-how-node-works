@@ -1,4 +1,4 @@
-class Calculator {
+module.exports = class {
   constructor() {}
 
   add(a, b) {
@@ -13,5 +13,3 @@ class Calculator {
     return a / b;
   }
 }
-
-module.exports = Calculator;
