@@ -1,0 +1,26 @@
+{
+  "name": "jonas-how-node-works",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DenisPepper/jonas-how-node-works.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DenisPepper/jonas-how-node-works/issues"
+  },
+  "homepage": "https://github.com/DenisPepper/jonas-how-node-works#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "superagent": "^8.1.2"
+  }
+}
