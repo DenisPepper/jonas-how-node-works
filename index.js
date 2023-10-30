@@ -20,7 +20,7 @@ const writeFileAsync = (filePath, data) => {
   });
 };
 
-readFileAsync(`${__dirname}/dog.txt`)
+/* readFileAsync(`${__dirname}/dog.txt`)
   .then((data) => {
     console.log(`${data}`);
     return superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
@@ -30,4 +30,21 @@ readFileAsync(`${__dirname}/dog.txt`)
     return writeFileAsync('dog-image.txt', response.body.message);
   })
   .then((response) => console.log(response))
-  .catch((err) => console.log(err.message));
+  .catch((err) => console.log(err.message)); */
+
+const getDogPic = async () => {
+  try {
+    const data = await readFileAsync(`${__dirname}/dog.txt`);
+    console.log(`${data}`);
+
+    const response = await superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
+    console.log(response.body.message);
+
+    const result = await writeFileAsync('dog-image.txt', response.body.message);
+    console.log(result);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+getDogPic();
