@@ -11,8 +11,9 @@ server.on('request', (req, res) => {
     res.end(data);
   });
     */
-
-  // Решение 2. res - response -это поток, доступный для записи
+  // Решение 2. res - response -это пишуший поток
+  // Читающий поток всегда быстрее, чем пишуший, поэтому это решение содержит проблему обратного давления
+  /*
   const readable = fs.createReadStream('./test-file.txt');
   readable
     .on('data', (chank) => {
@@ -24,6 +25,14 @@ server.on('request', (req, res) => {
       res.statusCode = 500;
       res.end('File not found');
     });
+
+    */
+
+    //Решение 3
+    //readableSource.pipe(writeableDest)
+    const readable = fs.createReadStream('./test-file.txt');
+    readable.pipe(res);
+
 });
 
 server.listen(8080, '127.0.0.1', () => console.log('starting...'));
