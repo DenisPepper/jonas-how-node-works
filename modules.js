@@ -9,3 +9,8 @@ console.log(calc1.add(1, 9));
 //exports
 const { add, devide, multiply } = require('./test-module-2.js');
 console.log(multiply(1, 9));
+
+// caching
+require('./test-module-3.js')();
+require('./test-module-3.js')();
+require('./test-module-3.js')();
