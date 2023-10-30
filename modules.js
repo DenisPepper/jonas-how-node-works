@@ -7,5 +7,5 @@ const calc1 = new C();
 console.log(calc1.add(1, 9));
 
 //exports
-const calc2 = require('./test-module-2.js');
-console.log(calc2.multiply(1, 9));
+const { add, devide, multiply } = require('./test-module-2.js');
+console.log(multiply(1, 9));
