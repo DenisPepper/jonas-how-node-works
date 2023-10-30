@@ -42,6 +42,17 @@ const getDogPic = async () => {
   }
 };
 
+/* 
 getDogPic()
   .then((result) => console.log(result))
   .catch((err) => console.log(err));
+ */
+
+(async () => {
+  try {
+    const result = await getDogPic();
+    console.log(result);
+  } catch (error) {
+    console.log(err);
+  }
+})();
